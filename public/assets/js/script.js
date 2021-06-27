@@ -1,9 +1,8 @@
 const noteTitle = document.querySelector('.note-title');
 const noteText = document.querySelector('.note-textarea');
 const newNoteBtn = document.querySelector('.new-note');
-const noteList = document.querySelectorAll('.list-group');
+const noteList = document.querySelector('.list-group');
 const saveNoteBtn = document.querySelector('.save-note');
-
 
 const show = (elem) => {
     elem.style.display = 'inline';
@@ -14,21 +13,20 @@ const hide = (elem) => {
 };
 
 const printResults = resultArr => {
-    console.log("resultArray: " + resultArr);
 
-    const notesHTML = (resultArr) => {
-        return `
+    let title, text;
+    [title, text] = [resultArr.title, resultArr.text];
+
+    let notesHTMLEl =
+    `
     <div class="col-12 col-md-5 mb-3">
-      <div class="card p-3" data-id=${resultArr.id}>
-        <h4 class="text-primary">${resultArr.title}</h4>
-           Text: ${resultArr.text}
+      <div class="card p-3">
+        <h4 class="text-primary">${title}</h4>
+           Text: ${text}
       </div>
     </div>
-      `;
-    };
-
-    noteList.append(notesHTML);
-    window.location.reload(true);
+    `;
+    noteList.innerHTML= noteListHolder;
 };
 
 const saveNote = () => {
