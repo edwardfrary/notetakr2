@@ -1,7 +1,7 @@
 const noteTitle = document.querySelector('.note-title');
 const noteText = document.querySelector('.note-textarea');
 const newNoteBtn = document.querySelector('.new-note');
-const noteList = document.querySelectorAll('.list-container .list-group');
+const noteList = document.querySelectorAll('.list-group');
 const saveNoteBtn = document.querySelector('.save-note');
 
 
@@ -16,7 +16,7 @@ const hide = (elem) => {
 const printResults = resultArr => {
     console.log("resultArray: " + resultArr);
 
-    const notesHTML = (resultsArr) => {
+    const notesHTML = (resultArr) => {
         return `
     <div class="col-12 col-md-5 mb-3">
       <div class="card p-3" data-id=${resultArr.id}>
@@ -27,7 +27,7 @@ const printResults = resultArr => {
       `;
     };
 
-    noteList.innerHTML = notesHTML;
+    noteList.append(notesHTML);
     window.location.reload(true);
 };
 
