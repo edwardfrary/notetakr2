@@ -1,8 +1,7 @@
 const fs = require('fs');
 const router = require('express').Router();
 const { createNewNote } = require('../../lib/notes');
-const notes = require('E:/College/coding/github/notetakr2/data/notes.json');
-console.log(notes);
+const notes  = require('../../data/notes.json');
 
 router.get('/notes', (req, res) => {
     let results = notes;
