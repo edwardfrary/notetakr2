@@ -16,19 +16,19 @@ const hide = (elem) => {
 const printResults = resultArr => {
     console.log("resultArray: " + resultArr);
 
-    const notesHTML = resultArr.map(({ title, text, id}) => {
+    const notesHTML = (resultsArr) => {
         return `
     <div class="col-12 col-md-5 mb-3">
-      <div class="card p-3" data-id=${id}>
-        <h4 class="text-primary">${title}</h4>
-           Text: ${text}
+      <div class="card p-3" data-id=${resultArr.id}>
+        <h4 class="text-primary">${resultArr.title}</h4>
+           Text: ${resultArr.text}
       </div>
     </div>
       `;
-    });
-    console.log(notesHTML);
+    };
 
-    noteList.innerHTML = notesHTML.join('');
+    noteList.innerHTML = notesHTML;
+    window.location.reload(true);
 };
 
 const saveNote = () => {
