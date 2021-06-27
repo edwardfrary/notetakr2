@@ -13,6 +13,24 @@ const hide = (elem) => {
     elem.style.display = 'none';
 };
 
+const printResults = resultArr => {
+    console.log("resultArray: " + resultArr);
+
+    const notesHTML = resultArr.map(({ title, text, id}) => {
+        return `
+    <div class="col-12 col-md-5 mb-3">
+      <div class="card p-3" data-id=${id}>
+        <h4 class="text-primary">${title}</h4>
+           Text: ${text}
+      </div>
+    </div>
+      `;
+    });
+    console.log(notesHTML);
+
+    noteList.innerHTML = notesHTML.join('');
+};
+
 const saveNote = () => {
     let title = noteTitle.value;
     let text = noteText.value
@@ -23,9 +41,7 @@ const saveNote = () => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(noteObj),
-    }).then(response => {
-        if (response.ok) {
-            return response.json();
-        };
+    }).then(data => {
+        printResults(noteObj);
     });
 };
