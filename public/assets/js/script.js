@@ -1,6 +1,9 @@
 const noteTitle = document.querySelector('.note-title');
 const noteText = document.querySelector('.note-textarea');
+const newNoteBtn = document.querySelector('.new-note');
+const noteList = document.querySelectorAll('.list-container .list-group');
 const saveNoteBtn = document.querySelector('.save-note');
+
 
 const show = (elem) => {
     elem.style.display = 'inline';
@@ -26,13 +29,3 @@ const saveNote = () => {
         };
     });
 };
-
-const createNewNote = (body, notesArray) => {
-    const note = body;
-    notesArray.push(note);
-    fs.writeFileSync(
-      path.join(__dirname, '../data/notes.json'),
-      JSON.stringify({ notesArray }, null, 2)
-    );
-    return note;
-  }
